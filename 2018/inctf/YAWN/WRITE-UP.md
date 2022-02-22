@@ -1,7 +1,5 @@
 # YAWN ~ Write-Up
 
-## Challenge Metadata
-
 YAWN is a heap exploitation challenge and was part of the InCTF 2018 event.
 
 **Points:** 956    <br>
