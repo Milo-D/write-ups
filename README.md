@@ -6,6 +6,6 @@ A small collection of CTF write-ups for the challenges I've enjoyed the most.
 
 ### Overview
 
-| _Challenge_ | _Event_    | _Info_                                                                       |
-|-------------|------------|------------------------------------------------------------------------------|
-| YAWN        | InCTF 2018 | ```heap``` ```glibc-2.23``` ```fastbin``` ```topchunk```<br>```off-by-one``` |
+| _Challenge_                         | _Event_    | _Info_                                                                       |
+|-------------------------------------|------------|------------------------------------------------------------------------------|
+| [YAWN](2018/inctf/YAWN/WRITE-UP.md) | InCTF 2018 | ```heap``` ```glibc-2.23``` ```fastbin``` ```topchunk```<br>```off-by-one``` |
