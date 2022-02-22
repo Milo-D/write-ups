@@ -127,7 +127,7 @@ This large buffer will be then copied to the start of the note structure via ```
 We can use this to set the ```note.desc``` pointer to an address we want to leak, then call the view_note subroutine in order to 
 print the ```note.desc``` pointer. That's our arbitrary read.
 
-By choosing ```note.desc = GOT[setvbuf]``` and ```note.desc = table[0]```, we can leak the libc base address and a heap pointer.
+By choosing ```note.desc = GOT[setvbuf]``` and ```note.desc = &table[0]```, we can leak the libc base address and a heap pointer.
 
 And by combining the same off-by-one bug with the edit_note subroutine (in order to make arbitrary allocations), we can perform a house-of-force
 and overwrite the ```__malloc_hook``` with a custom handler (glibc's ```system``` function).
