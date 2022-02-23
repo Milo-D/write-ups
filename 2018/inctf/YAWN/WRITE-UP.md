@@ -2,7 +2,7 @@
 
 YAWN is a heap exploitation challenge and was part of the InCTF 2018 event.
 
-**Points:** 956    <br>
+**Points:** 956  
 **Difficulty:** ??
 
 ## Environment Information
