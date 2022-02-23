@@ -70,7 +70,6 @@ heap via ```strdup```. Then it allocates a ```0x70-sized chunk``` for the ```str
 ```struct note```'s userdata. Also there seems to be an off-by-one when storing the name in stackframe which might allow one to merge 
 the name buffer with the description buffer.
 
-
 ```assembly
 ; read note-name (off-by-one)
 lea rax, [name]
