@@ -26,9 +26,9 @@ When executing the binary, a menu opens up
 
 Here is a brief description of these options:
 
-**1:** alloc a new note with a generated ID by specifying a note-name and note-description <br>
-**2:** edit existing note by specifying note-ID, new note-name, new note-description and size of new note-description <br>
-**3:** free an existing note by specifying note-ID of target <br>
+**1:** alloc a new note with a generated ID by specifying a note-name and note-description  
+**2:** edit existing note by specifying note-ID, new note-name, new note-description and size of new note-description  
+**3:** free an existing note by specifying note-ID of target  
 **4:** prints name, description and description-size of target note
 
 After inspecting and analyzing the application's disassembly, this is how the program works (in a nutshell):
@@ -71,7 +71,7 @@ heap via ```strdup```. Then it allocates a ```0x70-sized chunk``` for the ```str
 the name buffer with the description buffer.
 
 
-```asm
+```assembly
 ; read note-name (off-by-one)
 lea rax, [name]
 mov esi, 0x51
@@ -136,9 +136,9 @@ One final call to malloc with the address of ```/bin/sh``` (residing in libc-2.2
 
 So, in summary
 
-**Stage 1:** leak base address of glibc <br>
-**Stage 2:** leak heap pointer in order to determine topchunk address <br>
-**Stage 3:** corrupt topchunk metadata and registering fake ```__malloc_hook``` handler <br>
+**Stage 1:** leak base address of glibc  
+**Stage 2:** leak heap pointer in order to determine topchunk address  
+**Stage 3:** corrupt topchunk metadata and registering fake ```__malloc_hook``` handler  
 **Stage 4:** trigger the hook by a final call to ```malloc``` with ```/bin/sh``` address as size argument
 
 ## Putting it all together
@@ -283,7 +283,7 @@ if __name__ == "__main__":
     main();
 ```
 
-![yawn](https://user-images.githubusercontent.com/46600932/155208172-dd735211-43d8-464d-873c-5fb49076b166.png)<br>
+![yawn](https://user-images.githubusercontent.com/46600932/155208172-dd735211-43d8-464d-873c-5fb49076b166.png)  
 <sup>Finally executing the exploit</sup>
 
 ## Conclusion
