@@ -2,7 +2,7 @@
 
 'An attempt was made' is a binary exploitation challenge and was part of the MetaCTF 2021 event.
 
-**Points:** 400
+**Points:** 400  
 **Solves:** 13
 
 ## Environment Information
@@ -43,8 +43,8 @@ Here is a brief description of these functions:
 
 **sym.main:** this function seems rather simple. It simply calls ```sym.setup``` and ```sym.vuln```   
 **sym.setup:** disables double buffering of stdout, stdin, stderr. Calls ```sym.seccomp```  
-**sym.seccomp:** configures secure-computing via a berkeley-packet-filter
-**sym.vuln:** asks for the total amount of bytes, then calls ```sym.read_byte```
+**sym.seccomp:** configures secure-computing via a berkeley-packet-filter  
+**sym.vuln:** asks for the total amount of bytes, then calls ```sym.read_byte```  
 **sym.read_byte:** reads further user input, the total amount depends on function parameter 
 
 After further analysis, these are some more interesting findings
@@ -271,8 +271,8 @@ syscall
 Seccomp is still active and is going to block all syscalls to ```execve``` and ```execveat```.
 I guess there are two options for this problem
 
-- 1. finding a bug in seccomp configuration (misconfiguration)
-- 2. crafting shellcode without those syscalls
+1. finding a bug in seccomp configuration (misconfiguration)
+2. crafting shellcode without those syscalls
 
 Since I could not find any bugs in the configuration, I decided to go with the second option: Crafting
 a shellcode to ```open```, ```read``` then ```write``` the file of interest, thus avoiding blocked
@@ -535,7 +535,7 @@ void u64_to_bytes(const uint64_t num, const ENDIAN eout, uint8_t *buffer) {
 }
 ```
 
-![m21aawm](https://user-images.githubusercontent.com/46600932/155649585-87276df2-48a7-495c-9047-a2c76b584191.png)
+![m21aawm](https://user-images.githubusercontent.com/46600932/155649585-87276df2-48a7-495c-9047-a2c76b584191.png)  
 <sup>Finally executing the exploit</sup>
 
 ## Conclusion
